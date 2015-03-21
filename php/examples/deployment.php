@@ -103,6 +103,11 @@ mxConstants::$DEFAULT_FONTFAMILY = "ttf/verah.ttf";
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
 	$xml = urldecode($_POST["xml"]);
+	$xml = <<<some
+<graph label="My Diagram" x="90" y="50" width="400" height="280">
+$xml
+</graph>
+some;
 	
 	// Creates a PNG representation of the file
 	$image =  mxGraphViewImageReader::convert($xml, "#FFFFFF");
